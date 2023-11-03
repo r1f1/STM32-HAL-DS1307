@@ -1,4 +1,4 @@
-# STM32-HAL-HD44780
+# STM32-HAL-DS1307
 
 ## Overview
 
