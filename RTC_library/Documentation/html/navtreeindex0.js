@@ -1,0 +1,26 @@
+var NAVTREEINDEX0 =
+{
+"annotated.html":[0,0],
+"classes.html":[0,1],
+"files.html":[1,0],
+"globals.html":[1,1,0],
+"globals_func.html":[1,1,1],
+"index.html":[],
+"pages.html":[],
+"rtc_8c.html":[1,0,0],
+"rtc_8c.html#a3069f680eb8b7c364ce63dfcdbca83e7":[1,0,0,2],
+"rtc_8c.html#a50744f857173f6609d135922d5cee485":[1,0,0,1],
+"rtc_8c.html#a8e017635746c5f0fbf4a7d5e75bd580a":[1,0,0,3],
+"rtc_8c.html#ab15812e052987a8c1349cb1f452f060c":[1,0,0,0],
+"rtc_8c.html#ab50c9edce2cc218dfa013ada0a08cdd7":[1,0,0,4],
+"rtc_8h.html":[1,0,1],
+"rtc_8h.html#a0135ef1b936953a6b12bddeb095d18e6":[1,0,1,5],
+"rtc_8h.html#a07e7ba037b31ec21f84fee729d8cb7a8":[1,0,1,6],
+"rtc_8h.html#a43bed7cfb0418ee35c038fb204e4f997":[1,0,1,7],
+"rtc_8h.html#a91e3fd8ab7020353512c6f0fa3cbc411":[1,0,1,3],
+"rtc_8h.html#ab22ea094876b9d8cc588cf0e314b2c59":[1,0,1,4],
+"rtc_8h_source.html":[1,0,1],
+"struct_r_t_c___handle_type_def.html":[0,0,1],
+"struct_r_t_c__date__t.html":[0,0,0],
+"struct_r_t_c__time__t.html":[0,0,2]
+};

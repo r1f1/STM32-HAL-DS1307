@@ -1,0 +1,87 @@
+\doxysection{rtc.\+h}
+\hypertarget{rtc_8h_source}{}\label{rtc_8h_source}\mbox{\hyperlink{rtc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ RTC\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ RTC\_H\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//********************************************\ Includes\ ********************************************//}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}stm32f4xx\_hal.h"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//***************************************\ Register\ addresses\ ***************************************//}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ RTC\_ADDR\_SEC\ \ \ \ \ \ \ \ \ \ \ \ 0x00}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ RTC\_ADDR\_MIN\ \ \ \ \ \ \ \ \ \ \ \ 0x01}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ RTC\_ADDR\_HRS\ \ \ \ \ \ \ \ \ \ \ \ 0x02}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ RTC\_ADDR\_DAY\ \ \ \ \ \ \ \ \ \ \ \ 0x03}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ RTC\_ADDR\_DATE\ \ \ \ \ \ \ \ \ \ \ 0x04}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ RTC\_ADDR\_MONTH\ \ \ \ \ \ \ \ \ \ 0x05}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ RTC\_ADDR\_YEAR\ \ \ \ \ \ \ \ \ \ \ 0x06}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//******************************************\ Time\ format\ ******************************************//}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ TIME\_FORMAT\_12HRS\_AM\ \ \ \ 0}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ TIME\_FORMAT\_12HRS\_PM\ \ \ \ 1}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ TIME\_FORMAT\_24HRS\ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//***************************************\ DS1307\ slave\ address\ *************************************//}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ RTC\_I2C\_ADDRESS\ \ \ \ \ \ \ \ \ 0x68<<1}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{//******************************************\ Helper\ macros\ *****************************************//}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ DAY\_OF\_WEEK(x)\ \ \ \ \ \ \ \ \ \ (\ (x\ ==\ 1)\ ?\ "{}Mon"{}:\(\backslash\)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (x\ ==\ 2)\ ?\ "{}Tue"{}:\(\backslash\)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (x\ ==\ 3)\ ?\ "{}Wed"{}:\(\backslash\)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (x\ ==\ 4)\ ?\ "{}Thu"{}:\(\backslash\)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (x\ ==\ 5)\ ?\ "{}Fri"{}:\(\backslash\)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (x\ ==\ 6)\ ?\ "{}Sat"{}:\(\backslash\)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (x\ ==\ 7)\ ?\ "{}Sun"{}:0\ )}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ MONDAY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ TUESDAY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ WEDNESDAY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ THURSDAY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ FRIDAY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ SATURDAY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ SUNDAY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 7}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{//*****************************************\ RTC\ types\ *****************************************//}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ uint8\_t\ month;}
+\DoxyCodeLine{00066\ \ \ \ \ uint8\_t\ year;}
+\DoxyCodeLine{00067\ \ \ \ \ uint8\_t\ date;}
+\DoxyCodeLine{00068\ \ \ \ \ uint8\_t\ day;}
+\DoxyCodeLine{00069\ \}\mbox{\hyperlink{struct_r_t_c__date__t}{RTC\_date\_t}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00077\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ uint8\_t\ seconds;}
+\DoxyCodeLine{00079\ \ \ \ \ uint8\_t\ minutes;}
+\DoxyCodeLine{00080\ \ \ \ \ uint8\_t\ hours;}
+\DoxyCodeLine{00081\ \ \ \ \ uint8\_t\ time\_format;}
+\DoxyCodeLine{00082\ \}\mbox{\hyperlink{struct_r_t_c__time__t}{RTC\_time\_t}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ I2C\_HandleTypeDef\ \ \ *I2C\_Handle;}
+\DoxyCodeLine{00092\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ I2C\_Addr;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \}\mbox{\hyperlink{struct_r_t_c___handle_type_def}{RTC\_HandleTypeDef}};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{comment}{//*************************************\ Function\ declarations\ ***********************************//}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ uint8\_t\ \mbox{\hyperlink{rtc_8h_a0135ef1b936953a6b12bddeb095d18e6}{rtc\_init}}(\mbox{\hyperlink{struct_r_t_c___handle_type_def}{RTC\_HandleTypeDef}}\ *,\ I2C\_HandleTypeDef\ *);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{rtc_8h_a43bed7cfb0418ee35c038fb204e4f997}{rtc\_set\_current\_time}}(\mbox{\hyperlink{struct_r_t_c___handle_type_def}{RTC\_HandleTypeDef}}\ *,\ \mbox{\hyperlink{struct_r_t_c__time__t}{RTC\_time\_t}}\ *);}
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{rtc_8h_ab22ea094876b9d8cc588cf0e314b2c59}{rtc\_get\_current\_time}}(\mbox{\hyperlink{struct_r_t_c___handle_type_def}{RTC\_HandleTypeDef}}\ *,\ \mbox{\hyperlink{struct_r_t_c__time__t}{RTC\_time\_t}}\ *);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{rtc_8h_a07e7ba037b31ec21f84fee729d8cb7a8}{rtc\_set\_current\_date}}(\mbox{\hyperlink{struct_r_t_c___handle_type_def}{RTC\_HandleTypeDef}}\ *,\ \mbox{\hyperlink{struct_r_t_c__date__t}{RTC\_date\_t}}\ *);}
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{rtc_8h_a91e3fd8ab7020353512c6f0fa3cbc411}{rtc\_get\_current\_date}}(\mbox{\hyperlink{struct_r_t_c___handle_type_def}{RTC\_HandleTypeDef}}\ *,\ \mbox{\hyperlink{struct_r_t_c__date__t}{RTC\_date\_t}}\ *);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RTC\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
